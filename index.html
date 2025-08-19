@@ -3,237 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mixtape Love – Claire de Runa — Vol. 1</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>Mixtape Love</title>
   <style>
     body {
+      font-family: 'Georgia', serif;
+      background: #fdfaf6 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #faf9fc;
-      color: #333;
       display: flex;
-      min-height: 100vh;
+      height: 100vh;
+      color: #333;
     }
-
-    /* Sidebar */
-    nav {
-      width: 240px;
-      background-color: #ede7f6; /* light lilac */
+    .sidebar {
+      width: 220px;
+      background: #c8a2c8;
       padding: 20px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     }
-
-    nav h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: #7b4ab8; /* lilac accent */
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav ul li {
-      margin-bottom: 12px;
-    }
-
-    nav ul li a {
-      color: #333;
-      text-decoration: none;
-      transition: color 0.2s;
-      font-family: 'Inter', sans-serif;
-    }
-
-    nav ul li a:hover {
-      color: #7b4ab8;
-    }
-
-    nav footer {
-      font-size: 12px;
-      color: #555;
-      margin-top: 40px;
-    }
-
-    /* Main Content */
-    main {
-      flex: 1;
-      padding: 40px;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      flex-direction: column;
+    .sidebar h2 {
+      font-size: 20px;
+      color: white;
+      margin-bottom: 15px;
       text-align: center;
     }
-
-    header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      margin: 0 0 10px;
-      color: #7b4ab8;
-    }
-
-    header p {
-      font-family: 'Playfair Display', serif;
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .cover-art {
-      flex-shrink: 0;
-      width: 180px;
-      height: 180px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .cover-art img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    section h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      margin-top: 40px;
-      color: #7b4ab8;
-    }
-
-    .tracklist {
-      margin-top: 20px;
-    }
-
-    .track {
-      background-color: #f3eefe;
-      padding: 12px 16px;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      transition: background 0.2s;
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
       cursor: pointer;
-    }
-
-    .track:hover {
-      background-color: #e8dbfb;
-    }
-
-    .track .info strong {
       display: block;
-      font-size: 15px;
-      font-family: 'Inter', sans-serif;
     }
-
-    .track .info span {
-      font-size: 13px;
-      color: #666;
-      font-family: 'Inter', sans-serif;
+    .sidebar a:hover {
+      text-decoration: underline;
     }
-
-    .message {
-      display: none;
-      margin-top: 8px;
-      padding: 8px 12px;
-      background: #fff;
-      border-radius: 8px;
-      font-size: 13px;
-      color: #444;
+    .content {
+      flex: 1;
+      padding: 40px;
+      overflow-y: auto;
+    }
+    .letter {
+      background: #fff url('https://www.transparenttextures.com/patterns/white-paper.png');
+      padding: 30px;
       border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-size: 18px;
     }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
+    .footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      background: #c8a2c8;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div>
-      <h1>Mixtape Love</h1>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#tracks">Tracklist</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-      </ul>
+  <div class="sidebar">
+    <h2>Claire de Runa — Vol. 1</h2>
+    <a onclick="showContent('home')">Home</a>
+    <a onclick="showContent('track1')">Track 1</a>
+    <a onclick="showContent('track2')">Track 2</a>
+    <a onclick="showContent('track3')">Track 3</a>
+    <a onclick="showContent('track4')">Track 4</a>
+    <div style="margin-top:30px;">
+      <h2>Gallery</h2>
+      <div class="photo-grid">
+        <img src="https://i.pinimg.com/originals/12/34/56/1234567890abcdef.jpg" alt="Photo 1" width="80%">
+        <img src="https://via.placeholder.com/150" alt="Photo 2" width="80%">
+        <img src="https://via.placeholder.com/150" alt="Photo 3" width="80%">
+        <img src="https://via.placeholder.com/150" alt="Photo 4" width="80%">
+      </div>
     </div>
-    <footer>
-      Made with ♡ in lilac
-    </footer>
-  </nav>
-
-  <main>
-    <header id="about">
-      <div class="cover-art">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Cassette_tape.jpg" alt="cassette tape">
-      </div>
-      <div>
-        <h2>Claire de Runa — Vol. 1</h2>
-        <p>A sonata of love, written beneath our moonlight</p>
-      </div>
-    </header>
-
-    <section id="tracks">
-      <h3>Tracklist</h3>
-      <div class="tracklist">
-        <div class="track" onclick="toggleMessage(this)">
-          <div class="info">
-            <strong>Pink Matter</strong>
-            <span>Frank Ocean</span>
-          </div>
-          <div class="message">This song always reminds me of our late-night talks.</div>
-        </div>
-        <div class="track" onclick="toggleMessage(this)">
-          <div class="info">
-            <strong>Best Part</strong>
-            <span>Daniel Caesar ft. H.E.R.</span>
-          </div>
-          <div class="message">The melody makes me think of your smile every time.</div>
-        </div>
-        <div class="track" onclick="toggleMessage(this)">
-          <div class="info">
-            <strong>eight (에잇)</strong>
-            <span>IU ft. SUGA</span>
-          </div>
-          <div class="message">We’ll always have this one as our forever song.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="gallery">
-      <h3>Our Gallery</h3>
-      <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop" alt="photo 1">
-        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=800&auto=format&fit=crop" alt="photo 2">
-        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop" alt="photo 3">
-      </div>
-    </section>
-  </main>
-
+  </div>
+  <div class="content" id="main">
+    <div class="letter" id="homeContent">
+      <h1 style="text-align:center;">Claire de Runa — Vol. 1</h1>
+      <h3 style="text-align:center;">A sonata of love, written beneath our moonlight</h3>
+      <p>My dearest,</p>
+      <p>Every note in this mixtape is a fragment of my heart, carefully chosen and wrapped with love. This little space is our corner of the world, where the distance fades and only the melody of us remains. Imagine this as a letter slipped into your hands under the moonlight—soft words meant only for you.</p>
+      <p>Whenever you press play, know that I’m there with you, humming along, smiling at the thought of us. May this mixtape be our bridge until the next time I can hold you close again.</p>
+      <p>With all my love,</p>
+      <p><em>— Yours always</em></p>
+    </div>
+  </div>
+  <div class="footer">
+    Sept 13, 2025 💜
+  </div>
   <script>
-    function toggleMessage(trackElement) {
-      const msg = trackElement.querySelector('.message');
-      const isVisible = msg.style.display === 'block';
-      document.querySelectorAll('.track .message').forEach(m => m.style.display = 'none');
-      msg.style.display = isVisible ? 'none' : 'block';
+    function showContent(page) {
+      const main = document.getElementById('main');
+      let content = '';
+      if (page === 'home') {
+        content = document.getElementById('homeContent').outerHTML;
+      } else if (page === 'track1') {
+        content = '<h2>Track 1</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>This song reminds me of the first time we laughed until sunrise.</p>';
+      } else if (page === 'track2') {
+        content = '<h2>Track 2</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>A melody that carries the warmth of your smile.</p>';
+      } else if (page === 'track3') {
+        content = '<h2>Track 3</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>This one whispers the memory of our quiet walks together.</p>';
+      } else if (page === 'track4') {
+        content = '<h2>Track 4</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>The song that will always remind me of us under the stars.</p>';
+      }
+      main.innerHTML = content;
     }
   </script>
 </body>
