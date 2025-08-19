@@ -75,19 +75,21 @@
       <h2>Claire de Runa — Vol. 1</h2>
       <!-- NOTE: MENU - Change the labels here if you want different menu names -->
       <a onclick="showContent('home')">Home</a>
-      <a onclick="showContent('track1')">Track 1</a>
-      <a onclick="showContent('track2')">Track 2</a>
-      <a onclick="showContent('track3')">Track 3</a>
-      <a onclick="showContent('track4')">Track 4</a>
+      <a onclick="showContent('track1')">Track 1 – Hari Saat Kita Dipertemukan</a>
+      <a onclick="showContent('track2')">Track 2 – Saat Hatiku Diam-Diam Jatuh</a>
+      <a onclick="showContent('track3')">Track 3 – Syukurku Tak Pernah Usai</a>
+      <a onclick="showContent('track4')">Track 4 – Semesta Kecilku Bernama Kamu</a>
+      <a onclick="showContent('track4')">Track 5 – Hal-Hal Kecil yang Kusuka Darimu</a>
+      <a onclick="showContent('track4')">Bonus Track – Setahun Bersama, Selamanya Menyatu</a>
 
       <!-- NOTE: GALLERY - Replace the image links here -->
       <div style="margin-top:30px;">
         <h2>Gallery</h2>
         <div class="photo-grid">
-          <img src="https://i.pinimg.com/originals/12/34/56/1234567890abcdef.jpg" alt="Photo 1" width="80%">
-          <img src="https://via.placeholder.com/150" alt="Photo 2" width="80%">
-          <img src="https://via.placeholder.com/150" alt="Photo 3" width="80%">
-          <img src="https://via.placeholder.com/150" alt="Photo 4" width="80%">
+          <img src="https://i.pinimg.com/originals/df/7b/1e/df7b1eea3a8e3cf773b9aa2f7ec7d7eb.gif" alt="Photo 1" width="80%">
+          <img src="https://i.pinimg.com/originals/a3/95/db/a395db5658cf2b8b6794e17c3f573fb1.gif" alt="Photo 2" width="80%">
+          <img src="https://i.pinimg.com/originals/8e/c8/a9/8ec8a97df70578d1148f0278bfbcb8bf.gif" alt="Photo 3" width="80%">
+          <img src="https://i.pinimg.com/736x/51/c7/d4/51c7d479f37014d10c68312f23b998f9.jpg" alt="Photo 4" width="80%">
         </div>
       </div>
     </div>
@@ -95,7 +97,7 @@
     <div class="content" id="main">
       <!-- NOTE: HOME MESSAGE - Change the GIF, title, subtitle, and letter text here -->
       <div class="letter" id="homeContent">
-        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Love GIF" style="display:block; margin:0 auto 20px; max-width:200px;">
+        <img src="https://i.pinimg.com/originals/17/5c/f5/175cf5724c422774c8bedd7323b269ef.gif" alt="Love GIF" style="display:block; margin:0 auto 20px; max-width:200px;">
         <h1 style="text-align:center;">Claire de Runa — Vol. 1</h1>
         <h3 style="text-align:center;">A sonata of love, written beneath our moonlight</h3>
         <p>My dearest,</p>
@@ -123,12 +125,20 @@
 
       // NOTE: TRACK 1 - Change Spotify link + note here
       } else if (page === 'track1') {
-        content = '<h2>Track 1</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>This song reminds me of the first time we laughed until sunrise.</p>';
+        content = '<h2>Track 1 – Hari Saat Kita Dipertemukan</h2><p><a href="https://open.spotify.com/track/1W8wS27Jr6xGjZrlbOzRLE?si=b13cc5ceb59c44cb " target="_blank">Listen on Spotify</a></p><p>I never thought that random day back in 2018 would change my life. Kita ketemu lewat A, and at first, aku cuma lihat kamu sebagai adik kecil yang selalu rame dan bikin suasana hidup. Tapi ternyata, waktu muterin cerita lain buat kita. Kita sempet jalan bareng, sempet jadi bagian penting satu sama lain, lalu harus berpisah di 2019. Honestly, I thought that was it. Tapi siapa sangka, setelah hampir 7 tahun, 2025 datang, dan kita dipertemukan lagi. Rasanya kayak semesta nggak pernah bener-bener ngizinin kita hilang."</p>';
 
       // NOTE: TRACK 2 - Change Spotify link + note here
       } else if (page === 'track2') {
         content = '<h2>Track 2</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>A melody that carries the warmth of your smile.</p>';
 
+      // NOTE: TRACK 3 - Change Spotify link + note here
+      } else if (page === 'track3') {
+        content = '<h2>Track 3</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>This one whispers the memory of our quiet walks together.</p>';
+
+      // NOTE: TRACK 4 - Change Spotify link + note here
+      } else if (page === 'track4') {
+        content = '<h2>Track 4</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>The song that will always remind me of us under the stars.</p>';
+      
       // NOTE: TRACK 3 - Change Spotify link + note here
       } else if (page === 'track3') {
         content = '<h2>Track 3</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>This one whispers the memory of our quiet walks together.</p>';
