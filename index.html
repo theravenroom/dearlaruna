@@ -67,37 +67,42 @@
       background: #c8a2c8;
       color: white;
     }
+    iframe.spotify-embed {
+      border: none;
+      width: 100%;
+      height: 80px;
+    }
+    .photo-grid img {
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
   <div class="main-wrapper">
     <div class="sidebar">
       <h2>Claire de Runa — Vol. 1</h2>
-      <!-- NOTE: MENU - Change the labels here if you want different menu names -->
       <a onclick="showContent('home')">Home</a>
       <a onclick="showContent('track1')">Hari Saat Kita Dipertemukan</a>
-      <a onclick="showContent('track2')">Saat Hatiku Diam-Diam Jatuh</a>
-      <a onclick="showContent('track3')">Syukurku Tak Pernah Usai</a>
-      <a onclick="showContent('track4')">Semesta Kecilku Bernama Kamu</a>
-      <a onclick="showContent('track5')">Hal-Hal Kecil yang Kusuka Darimu</a>
-      <a onclick="showContent('track6')">Setahun Bersama, Selamanya Menyatu</a>
-
-      <!-- NOTE: GALLERY - Replace the image links here -->
-      <div style="margin-top:30px;">
+      <a onclick="showContent('track2')">Track 2</a>
+      <a onclick="showContent('track3')">Track 3</a>
+      <a onclick="showContent('track4')">Track 4</a>
+      <a onclick="showContent('track5')">Track 5</a>
+      <a onclick="showContent('track6')">Track 6</a>
+      <div style="margin-top:30px; text-align:center;">
         <h2>Gallery</h2>
         <div class="photo-grid">
-          <img src="https://i.pinimg.com/originals/df/7b/1e/df7b1eea3a8e3cf773b9aa2f7ec7d7eb.gif" alt="Photo 1" width="80%">
-          <img src="https://i.pinimg.com/originals/a3/95/db/a395db5658cf2b8b6794e17c3f573fb1.gif" alt="Photo 2" width="80%">
-          <img src="https://i.pinimg.com/originals/8e/c8/a9/8ec8a97df70578d1148f0278bfbcb8bf.gif" alt="Photo 3" width="80%">
-          <img src="https://i.pinimg.com/736x/51/c7/d4/51c7d479f37014d10c68312f23b998f9.jpg" alt="Photo 4" width="80%">
+          <img src="https://i.pinimg.com/originals/12/34/56/1234567890abcdef.jpg" alt="Photo 1" width="80%">
+          <img src="https://via.placeholder.com/150" alt="Photo 2" width="80%">
+          <img src="https://via.placeholder.com/150" alt="Photo 3" width="80%">
+          <img src="https://via.placeholder.com/150" alt="Photo 4" width="80%">
         </div>
       </div>
     </div>
 
     <div class="content" id="main">
-      <!-- NOTE: HOME MESSAGE - Change the GIF, title, subtitle, and letter text here -->
-      <div class="letter" id="homeContent">
-        <img src="https://i.pinimg.com/originals/17/5c/f5/175cf5724c422774c8bedd7323b269ef.gif" alt="Love GIF" style="display:block; margin:0 auto 20px; max-width:200px;">
+      <div id="homeContent" class="letter">
+        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Love GIF" style="display:block; margin:0 auto 20px; max-width:200px; border-radius:8px;">
         <h1 style="text-align:center;">Claire de Runa — Vol. 1</h1>
         <h3 style="text-align:center;">A sonata of love, written beneath our moonlight</h3>
         <p>My dearest,</p>
@@ -106,51 +111,50 @@
         <p>With all my love,</p>
         <p><em>— Yours always</em></p>
       </div>
+      <div id="track1Content" class="letter" style="display:none;">
+        <h2>Hari Saat Kita Dipertemukan</h2>
+        <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
+        <p>This song reminds me of the first time we laughed until sunrise.</p>
+      </div>
+      <div id="track2Content" class="letter" style="display:none;">
+        <h2>Track 2</h2>
+        <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/3n3Ppam7vgaVa1iaRUc9Lp' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
+        <p>A melody that carries the warmth of your smile.</p>
+      </div>
+      <div id="track3Content" class="letter" style="display:none;">
+        <h2>Track 3</h2>
+        <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/7GhIk7Il098yCjg4BQjzvb' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
+        <p>This one whispers the memory of our quiet walks together.</p>
+      </div>
+      <div id="track4Content" class="letter" style="display:none;">
+        <h2>Track 4</h2>
+        <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
+        <p>The song that will always remind me of us under the stars.</p>
+      </div>
+      <div id="track5Content" class="letter" style="display:none;">
+        <h2>Track 5</h2>
+        <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/5GhIk7Il098yCjg4BQjzzz' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
+        <p>Track 5 is full of memories we danced to in the rain.</p>
+      </div>
+      <div id="track6Content" class="letter" style="display:none;">
+        <h2>Track 6</h2>
+        <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/6GhIk7Il098yCjg4BQjzzz' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
+        <p>Track 6 is our lullaby under the soft moonlight.</p>
+      </div>
     </div>
   </div>
 
-  <!-- NOTE: FOOTER - Anniversary date as footnote on right -->
   <div class="footer">
     Sept 13, 2025 💜
   </div>
 
   <script>
     function showContent(page) {
-      const main = document.getElementById('main');
-      let content = '';
-
-      if (page === 'home') {
-        content = document.getElementById('homeContent').outerHTML;
-      } else if (page === 'track1') {
-        content = `<h2>Hari Saat Kita Dipertemukan</h2>
-                   <iframe class='spotify-embed' src='https://open.spotify.com/track/1W8wS27Jr6xGjZrlbOzRLE?si=b13cc5ceb59c44cb' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
-                   <p>I never thought that random day back in 2018 would change my life. Kita ketemu lewat A, and at first, aku cuma lihat kamu sebagai adik kecil yang selalu rame dan bikin suasana hidup.</p>`;
-                   <p>Tapi ternyata, waktu muterin cerita lain buat kita. Kita sempet jalan bareng, sempet jadi bagian penting satu sama lain, lalu harus berpisah di 2019.</p>`;
-                   <p>Honestly, I thought that was it. Tapi siapa sangka, setelah hampir 7 tahun, 2025 datang, dan kita dipertemukan lagi.</p>`;
-                   <p>Rasanya kayak semesta nggak pernah bener-bener ngizinin kita hilang.</p>`;
-      } else if (page === 'track2') {
-        content = `<h2>Saat Hatiku Diam-Diam Jatuh</h2>
-                   <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/YOUR_TRACK2_ID' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
-                   <p>A melody that carries the warmth of your smile.</p>`;
-      } else if (page === 'track3') {
-        content = `<h2>Syukurku Tak Pernah Usai</h2>
-                   <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/YOUR_TRACK3_ID' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
-                   <p>This one whispers the memory of our quiet walks together.</p>`;
-      } else if (page === 'track4') {
-        content = `<h2>Semesta Kecilku Bernama Kamu</h2>
-                   <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/YOUR_TRACK4_ID' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
-                   <p>The song that will always remind me of us under the stars.</p>`;
-      } else if (page === 'track5') {
-        content = `<h2>Hal-Hal Kecil yang Kusuka Darimu</h2>
-                   <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/YOUR_TRACK3_ID' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
-                   <p>This one whispers the memory of our quiet walks together.</p>`;
-      } else if (page === 'track6') {
-        content = `<h2>Setahun Bersama, Selamanya Menyatu</h2>
-                   <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/YOUR_TRACK4_ID' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
-                   <p>The song that will always remind me of us under the stars.</p>`;
-      }
-
-      main.innerHTML = content;
+      const pages = ['home', 'track1', 'track2', 'track3', 'track4', 'track5', 'track6'];
+      pages.forEach(p => {
+        const el = document.getElementById(p + 'Content');
+        if (el) el.style.display = (p === page) ? 'block' : 'none';
+      });
     }
   </script>
 </body>
