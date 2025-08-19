@@ -125,6 +125,7 @@
       justify-content: space-between;
       align-items: center;
       transition: background 0.2s;
+      cursor: pointer;
     }
 
     .track:hover {
@@ -197,21 +198,21 @@
     <section id="tracks">
       <h3>Tracklist</h3>
       <div class="tracklist">
-        <div class="track">
+        <div class="track" onclick="showMessage('This song always reminds me of our late-night talks.')">
           <div class="info">
             <strong>Pink Matter</strong>
             <span>Frank Ocean</span>
           </div>
           <a href="https://www.youtube.com/watch?v=bC3vX9Iv3g8" target="_blank">Play</a>
         </div>
-        <div class="track">
+        <div class="track" onclick="showMessage('The melody makes me think of your smile every time.')">
           <div class="info">
             <strong>Best Part</strong>
             <span>Daniel Caesar ft. H.E.R.</span>
           </div>
           <a href="https://www.youtube.com/watch?v=vBy7FaapGRo" target="_blank">Play</a>
         </div>
-        <div class="track">
+        <div class="track" onclick="showMessage('We’ll always have this one as our forever song.')">
           <div class="info">
             <strong>eight (에잇)</strong>
             <span>IU ft. SUGA</span>
@@ -230,5 +231,11 @@
       </div>
     </section>
   </main>
+
+  <script>
+    function showMessage(message) {
+      alert(message);
+    }
+  </script>
 </body>
 </html>
