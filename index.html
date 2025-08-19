@@ -75,12 +75,12 @@
       <h2>Claire de Runa — Vol. 1</h2>
       <!-- NOTE: MENU - Change the labels here if you want different menu names -->
       <a onclick="showContent('home')">Home</a>
-      <a onclick="showContent('track1')">Track 1 – Hari Saat Kita Dipertemukan</a>
-      <a onclick="showContent('track2')">Track 2 – Saat Hatiku Diam-Diam Jatuh</a>
-      <a onclick="showContent('track3')">Track 3 – Syukurku Tak Pernah Usai</a>
-      <a onclick="showContent('track4')">Track 4 – Semesta Kecilku Bernama Kamu</a>
-      <a onclick="showContent('track4')">Track 5 – Hal-Hal Kecil yang Kusuka Darimu</a>
-      <a onclick="showContent('track4')">Bonus Track – Setahun Bersama, Selamanya Menyatu</a>
+      <a onclick="showContent('track1')">Hari Saat Kita Dipertemukan</a>
+      <a onclick="showContent('track2')">Saat Hatiku Diam-Diam Jatuh</a>
+      <a onclick="showContent('track3')">Syukurku Tak Pernah Usai</a>
+      <a onclick="showContent('track4')">Semesta Kecilku Bernama Kamu</a>
+      <a onclick="showContent('track5')">Hal-Hal Kecil yang Kusuka Darimu</a>
+      <a onclick="showContent('track6')">Setahun Bersama, Selamanya Menyatu</a>
 
       <!-- NOTE: GALLERY - Replace the image links here -->
       <div style="margin-top:30px;">
@@ -121,31 +121,31 @@
 
       if (page === 'home') {
         content = document.getElementById('homeContent').outerHTML;
-      } else if (page === 'track1–harisaatkitadipertemukan') {
-        content = `<h2>Track 1 – Hari Saat Kita Dipertemukan</h2>
+      } else if (page === 'track1') {
+        content = `<h2>Hari Saat Kita Dipertemukan</h2>
                    <iframe class='spotify-embed' src='https://open.spotify.com/track/1W8wS27Jr6xGjZrlbOzRLE?si=b13cc5ceb59c44cb' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
                    <p>I never thought that random day back in 2018 would change my life. Kita ketemu lewat A, and at first, aku cuma lihat kamu sebagai adik kecil yang selalu rame dan bikin suasana hidup.</p>`;
                    <p>Tapi ternyata, waktu muterin cerita lain buat kita. Kita sempet jalan bareng, sempet jadi bagian penting satu sama lain, lalu harus berpisah di 2019.</p>`;
                    <p>Honestly, I thought that was it. Tapi siapa sangka, setelah hampir 7 tahun, 2025 datang, dan kita dipertemukan lagi.</p>`;
                    <p>Rasanya kayak semesta nggak pernah bener-bener ngizinin kita hilang.</p>`;
       } else if (page === 'track2') {
-        content = `<h2>Track 2</h2>
+        content = `<h2>Saat Hatiku Diam-Diam Jatuh</h2>
                    <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/YOUR_TRACK2_ID' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
                    <p>A melody that carries the warmth of your smile.</p>`;
       } else if (page === 'track3') {
-        content = `<h2>Track 3</h2>
+        content = `<h2>Syukurku Tak Pernah Usai</h2>
                    <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/YOUR_TRACK3_ID' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
                    <p>This one whispers the memory of our quiet walks together.</p>`;
       } else if (page === 'track4') {
-        content = `<h2>Track 4</h2>
+        content = `<h2>Semesta Kecilku Bernama Kamu</h2>
                    <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/YOUR_TRACK4_ID' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
                    <p>The song that will always remind me of us under the stars.</p>`;
-      } else if (page === 'track3') {
-        content = `<h2>Track 3</h2>
+      } else if (page === 'track5') {
+        content = `<h2>Hal-Hal Kecil yang Kusuka Darimu</h2>
                    <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/YOUR_TRACK3_ID' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
                    <p>This one whispers the memory of our quiet walks together.</p>`;
-      } else if (page === 'track4') {
-        content = `<h2>Track 4</h2>
+      } else if (page === 'track6') {
+        content = `<h2>Setahun Bersama, Selamanya Menyatu</h2>
                    <iframe class='spotify-embed' src='https://open.spotify.com/embed/track/YOUR_TRACK4_ID' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe>
                    <p>The song that will always remind me of us under the stars.</p>`;
       }
