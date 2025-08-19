@@ -121,19 +121,12 @@
       padding: 12px 16px;
       border-radius: 10px;
       margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       transition: background 0.2s;
       cursor: pointer;
     }
 
     .track:hover {
       background-color: #e8dbfb;
-    }
-
-    .track .info {
-      flex: 1;
     }
 
     .track .info strong {
@@ -148,12 +141,15 @@
       font-family: 'Inter', sans-serif;
     }
 
-    .track a {
-      color: #7b4ab8;
-      font-size: 14px;
-      text-decoration: none;
-      margin-left: 16px;
-      font-family: 'Inter', sans-serif;
+    .message {
+      display: none;
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: #fff;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #444;
+      border: 1px solid #ddd;
     }
 
     .gallery {
@@ -198,26 +194,26 @@
     <section id="tracks">
       <h3>Tracklist</h3>
       <div class="tracklist">
-        <div class="track" onclick="showMessage('This song always reminds me of our late-night talks.')">
+        <div class="track" onclick="toggleMessage(this)">
           <div class="info">
             <strong>Pink Matter</strong>
             <span>Frank Ocean</span>
           </div>
-          <a href="https://www.youtube.com/watch?v=bC3vX9Iv3g8" target="_blank">Play</a>
+          <div class="message">This song always reminds me of our late-night talks.</div>
         </div>
-        <div class="track" onclick="showMessage('The melody makes me think of your smile every time.')">
+        <div class="track" onclick="toggleMessage(this)">
           <div class="info">
             <strong>Best Part</strong>
             <span>Daniel Caesar ft. H.E.R.</span>
           </div>
-          <a href="https://www.youtube.com/watch?v=vBy7FaapGRo" target="_blank">Play</a>
+          <div class="message">The melody makes me think of your smile every time.</div>
         </div>
-        <div class="track" onclick="showMessage('We’ll always have this one as our forever song.')">
+        <div class="track" onclick="toggleMessage(this)">
           <div class="info">
             <strong>eight (에잇)</strong>
             <span>IU ft. SUGA</span>
           </div>
-          <a href="https://www.youtube.com/watch?v=TgOu00Mf3kI" target="_blank">Play</a>
+          <div class="message">We’ll always have this one as our forever song.</div>
         </div>
       </div>
     </section>
@@ -233,8 +229,11 @@
   </main>
 
   <script>
-    function showMessage(message) {
-      alert(message);
+    function toggleMessage(trackElement) {
+      const msg = trackElement.querySelector('.message');
+      const isVisible = msg.style.display === 'block';
+      document.querySelectorAll('.track .message').forEach(m => m.style.display = 'none');
+      msg.style.display = isVisible ? 'none' : 'block';
     }
   </script>
 </body>
