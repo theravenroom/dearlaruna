@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mixtape Love – Vol. 1</title>
+  <meta name="description" content="A tiny, heartfelt mixtape site for someone special." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /*
+      HOW TO EDIT THIS PAGE
+      1) Scroll down to the <script> near the end and edit the `SETTINGS` and `PLAYLIST` arrays.
+         - Replace names, your message, and links (YouTube/Spotify/Apple Music/SoundCloud all work).
+         - For YouTube, paste the normal watch URL; the page will auto-convert to an embed.
+      2) Optional: Replace the gallery images with your own URLs (can be from your repo or anywhere on the web).
+      3) Save this as index.html, push to GitHub, turn on GitHub Pages.
+    */
+
+    :root {
+      --bg: #0f0f14;
+      --card: #171821;
+      --muted: #9aa0a6;
+      --text: #e6e6eb;
+      --accent: #ff5a8a; /* strawberry pink */
+      --accent-2: #8a6cff; /* soft purple */
+      --ring: rgba(255, 90, 138, .35);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+      color: var(--text);
+      background: radial-gradient(60rem 60rem at 10% -10%, rgba(255,90,138,.12), transparent 40%),
+                  radial-gradient(40rem 40rem at 90% 0%, rgba(138,108,255,.12), transparent 35%),
+                  linear-gradient(180deg, #0b0c10, #0e0f14 35%, #0f0f14);
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      display: grid;
+      gap: 12px;
+      padding: 28px 20px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+      position: relative;
+      overflow: hidden;
+    }
+    header::after{
+      content: "";
+      position: absolute; inset: -40% -10% auto auto;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle at 50% 50%, rgba(255,90,138,.35), transparent 60%);
+      filter: blur(35px);
+      transform: rotate(20deg);
+      pointer-events: none;
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4.5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: .2px;
+    }
+    .subtitle { color: var(--muted); font-weight: 300; }
+
+    .note {
+      margin: 22px 0 28px;
+      padding: 20px 22px;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .note h2 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+    .note p { margin: 8px 0; color: #d7d9df; }
+
+    .section-title { margin: 28px 0 12px; font-size: 18px; opacity: .9; }
+
+    .list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .track {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 18px;
+      padding: 10px 12px;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .2s ease;
+    }
+    .track:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.12); box-shadow: 0 8px 26px rgba(0,0,0,.25); }
+
+    .cover {
+      width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: #22242e;
+      display: grid; place-items: center; font-size: 22px; opacity: .9;
+    }
+    .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .meta { min-width: 0; }
+    .title-sm { font-weight: 600; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .by { color: var(--muted); font-size: 12px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .actions { display: flex; gap: 8px; }
+    button, .btn {
+      appearance: none; border: 0; cursor: pointer; font: inherit; color: inherit;
+      background: rgba(255,255,255,.06);
+      padding: 8px 12px; border-radius: 12px; white-space: nowrap;
+      transition: filter .15s ease, box-shadow .2s ease, transform .05s ease;
+    }
+    button:hover, .btn:hover { filter: brightness(1.15); }
+    button:active, .btn:active { transform: translateY(1px); }
+    .primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 6px 18px var(--ring); }
+
+    details.embed {
+      grid-column: 1 / -1;
+      background: rgba(255,255,255,.035);
+      border: 1px dashed rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 8px 8px 12px;
+    }
+    details.embed[open] { animation: pop .2s ease; }
+    details.embed summary { cursor: pointer; list-style: none; }
+    details.embed summary::-webkit-details-marker { display:none; }
+    details.embed .inner { aspect-ratio: 16/9; width: 100%; border-radius: 12px; overflow: hidden; margin-top: 8px; }
+    details.embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    @keyframes pop { from{ transform: scale(.98); opacity:.6 } to { transform: scale(1); opacity:1 } }
+
+    .gallery {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin-top: 8px;
+    }
+    .ph {
+      background: linear-gradient(135deg, rgba(255,90,138,.25), rgba(138,108,255,.25));
+      border-radius: 16px; aspect-ratio: 1/1; overflow: hidden; display: grid; place-items:center; font-weight:700; opacity:.9;
+    }
+    .ph img { width: 100%; height: 100%; object-fit: cover; display:block; }
+
+    footer { color: var(--muted); font-size: 12px; text-align: center; margin: 24px 0 12px; }
+    .heart { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">Mixtape Love — Vol. <span id="vol">1</span></div>
+      <div class="subtitle" id="subtitle">for <strong id="toName">You</strong> · from <strong id="fromName">Me</strong></div>
+    </header>
+
+    <section class="note">
+      <h2>Open when you miss me ♡</h2>
+      <p id="message">This is a tiny corner of the internet that belongs to us. Each song is a postcard—press play when you need a reminder that you’re loved.</p>
+    </section>
+
+    <h3 class="section-title">Tracklist</h3>
+    <div id="list" class="list"></div>
+
+    <h3 class="section-title">Our little gallery</h3>
+    <div id="gallery" class="gallery"></div>
+
+    <footer>
+      Built with <span class="heart">♥</span> — <span id="footerNames">You & Me</span>
+    </footer>
+  </div>
+
+  <script>
+    // ====== SETTINGS – edit these ======
+    const SETTINGS = {
+      volume: 1,
+      toName: 'Lunètte',
+      fromName: 'Januar',
+      volumeNumber: 1,
+      message: 'This is a tiny corner of the internet that belongs to us. Each song is a postcard—press play when you need a reminder that you’re loved.',
+      footerNames: 'Januar & Lunètte'
+    };
+
+    // Add or replace with your songs. YouTube/Spotify/SoundCloud/Apple links are fine.
+    // For YouTube, you can paste the regular watch URL; it will auto-convert to an embeddable link.
+    const PLAYLIST = [
+      {
+        title: 'Pink Matter',
+        artist: 'Frank Ocean',
+        url: 'https://www.youtube.com/watch?v=bC3vX9Iv3g8',
+        cover: 'https://images.unsplash.com/photo-1526765925052-c5aa8a4a29b8?q=80&w=1200&auto=format&fit=crop',
+        note: 'For the late-night talks when words get soft.'
+      },
+      {
+        title: 'Best Part',
+        artist: 'Daniel Caesar ft. H.E.R.',
+        url: 'https://www.youtube.com/watch?v=vBy7FaapGRo',
+        cover: 'https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=1200&auto=format&fit=crop',
+        note: 'Sunlight in a song.'
+      },
+      {
+        title: 'eight (에잇)',
+        artist: 'IU (Prod. & Feat. SUGA of BTS)',
+        url: 'https://www.youtube.com/watch?v=TgOu00Mf3kI',
+        cover: 'https://images.unsplash.com/photo-1521334726092-b509a19597c6?q=80&w=1200&auto=format&fit=crop',
+        note: 'Memories we keep like photos in our pockets.'
+      }
+    ];
+
+    // Replace or add your own image URLs here. Can be relative paths if you upload images to the repo.
+    const GALLERY = [
+      'https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop'
+    ];
+
+    // ====== RENDER LOGIC – no need to edit below unless you want to ======
+    const $ = sel => document.querySelector(sel);
+
+    // Apply settings
+    $('#toName').textContent = SETTINGS.toName;
+    $('#fromName').textContent = SETTINGS.fromName;
+    $('#vol').textContent = SETTINGS.volumeNumber;
+    $('#message').textContent = SETTINGS.message;
+    $('#footerNames').textContent = SETTINGS.footerNames;
+
+    const list = document.getElementById('list');
+
+    function ytToEmbed(url){
+      try{
+        const u = new URL(url);
+        if (u.hostname.includes('youtube.com') && u.searchParams.get('v')) {
+          return `https://www.youtube.com/embed/${u.searchParams.get('v')}`;
+        }
+        if (u.hostname === 'youtu.be') {
+          return `https://www.youtube.com/embed${u.pathname}`;
+        }
+      }catch(e){}
+      return url; // not YouTube, return as-is (Spotify, SoundCloud, etc.)
+    }
+
+    PLAYLIST.forEach((t, i) => {
+      const item = document.createElement('div');
+      item.className = 'track';
+
+      const cover = document.createElement('div');
+      cover.className = 'cover';
+      if (t.cover) {
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.src = t.cover;
+        img.alt = `${t.title} cover`;
+        cover.appendChild(img);
+      } else {
+        cover.textContent = '♪';
+      }
+
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.innerHTML = `<div class="title-sm">${t.title}</div><div class="by">${t.artist}</div>`;
+
+      const actions = document.createElement('div');
+      actions.className = 'actions';
+
+      const openBtn = document.createElement('a');
+      openBtn.href = t.url;
+      openBtn.target = '_blank';
+      openBtn.rel = 'noopener noreferrer';
+      openBtn.className = 'btn';
+      openBtn.textContent = 'Open';
+
+      const embedBtn = document.createElement('button');
+      embedBtn.className = 'primary';
+      embedBtn.textContent = 'Play here';
+
+      const details = document.createElement('details');
+      details.className = 'embed';
+      const summary = document.createElement('summary');
+      summary.textContent = t.note ? `Why this song — ${t.note}` : 'Why this song';
+      const inner = document.createElement('div');
+      inner.className = 'inner';
+      const iframe = document.createElement('iframe');
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.src = ytToEmbed(t.url);
+      inner.appendChild(iframe);
+      details.appendChild(summary);
+      details.appendChild(inner);
+
+      embedBtn.addEventListener('click', () => {
+        // toggle open
+        details.open = !details.open;
+        if (details.open) {
+          details.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+
+      actions.appendChild(openBtn);
+      actions.appendChild(embedBtn);
+
+      item.appendChild(cover);
+      item.appendChild(meta);
+      item.appendChild(actions);
+      list.appendChild(item);
+
+      // Embed area per track
+      list.appendChild(details);
+    });
+
+    const gal = document.getElementById('gallery');
+    GALLERY.forEach(src => {
+      const ph = document.createElement('div');
+      ph.className = 'ph';
+      if (src) {
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.src = src; img.alt = 'Our photo';
+        ph.appendChild(img);
+      } else {
+        ph.textContent = '♡';
+      }
+      gal.appendChild(ph);
+    });
+  </script>
+</body>
+</html>
