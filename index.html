@@ -12,6 +12,11 @@
       display: flex;
       height: 100vh;
       color: #333;
+      flex-direction: column;
+    }
+    .main-wrapper {
+      flex: 1;
+      display: flex;
     }
     .sidebar {
       width: 220px;
@@ -54,8 +59,10 @@
       font-size: 18px;
     }
     .footer {
-      text-align: center;
-      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 20px;
       font-size: 14px;
       background: #c8a2c8;
       color: white;
@@ -63,53 +70,74 @@
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Claire de Runa — Vol. 1</h2>
-    <a onclick="showContent('home')">Home</a>
-    <a onclick="showContent('track1')">Track 1</a>
-    <a onclick="showContent('track2')">Track 2</a>
-    <a onclick="showContent('track3')">Track 3</a>
-    <a onclick="showContent('track4')">Track 4</a>
-    <div style="margin-top:30px;">
-      <h2>Gallery</h2>
-      <div class="photo-grid">
-        <img src="https://i.pinimg.com/originals/12/34/56/1234567890abcdef.jpg" alt="Photo 1" width="80%">
-        <img src="https://via.placeholder.com/150" alt="Photo 2" width="80%">
-        <img src="https://via.placeholder.com/150" alt="Photo 3" width="80%">
-        <img src="https://via.placeholder.com/150" alt="Photo 4" width="80%">
+  <div class="main-wrapper">
+    <div class="sidebar">
+      <h2>Claire de Runa — Vol. 1</h2>
+      <!-- NOTE: MENU - Change the labels here if you want different menu names -->
+      <a onclick="showContent('home')">Home</a>
+      <a onclick="showContent('track1')">Track 1</a>
+      <a onclick="showContent('track2')">Track 2</a>
+      <a onclick="showContent('track3')">Track 3</a>
+      <a onclick="showContent('track4')">Track 4</a>
+
+      <!-- NOTE: GALLERY - Replace the image links here -->
+      <div style="margin-top:30px;">
+        <h2>Gallery</h2>
+        <div class="photo-grid">
+          <img src="https://i.pinimg.com/originals/12/34/56/1234567890abcdef.jpg" alt="Photo 1" width="80%">
+          <img src="https://via.placeholder.com/150" alt="Photo 2" width="80%">
+          <img src="https://via.placeholder.com/150" alt="Photo 3" width="80%">
+          <img src="https://via.placeholder.com/150" alt="Photo 4" width="80%">
+        </div>
+      </div>
+    </div>
+
+    <div class="content" id="main">
+      <!-- NOTE: HOME MESSAGE - Change the GIF, title, subtitle, and letter text here -->
+      <div class="letter" id="homeContent">
+        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Love GIF" style="display:block; margin:0 auto 20px; max-width:200px;">
+        <h1 style="text-align:center;">Claire de Runa — Vol. 1</h1>
+        <h3 style="text-align:center;">A sonata of love, written beneath our moonlight</h3>
+        <p>My dearest,</p>
+        <p>Every note in this mixtape is a fragment of my heart, carefully chosen and wrapped with love. This little space is our corner of the world, where the distance fades and only the melody of us remains. Imagine this as a letter slipped into your hands under the moonlight—soft words meant only for you.</p>
+        <p>Whenever you press play, know that I’m there with you, humming along, smiling at the thought of us. May this mixtape be our bridge until the next time I can hold you close again.</p>
+        <p>With all my love,</p>
+        <p><em>— Yours always</em></p>
       </div>
     </div>
   </div>
-  <div class="content" id="main">
-    <div class="letter" id="homeContent">
-      <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Love GIF" style="display:block; margin:0 auto 20px; max-width:200px;">
-      <h1 style="text-align:center;">Claire de Runa — Vol. 1</h1>
-      <h3 style="text-align:center;">A sonata of love, written beneath our moonlight</h3>
-      <p>My dearest,</p>
-      <p>Every note in this mixtape is a fragment of my heart, carefully chosen and wrapped with love. This little space is our corner of the world, where the distance fades and only the melody of us remains. Imagine this as a letter slipped into your hands under the moonlight—soft words meant only for you.</p>
-      <p>Whenever you press play, know that I’m there with you, humming along, smiling at the thought of us. May this mixtape be our bridge until the next time I can hold you close again.</p>
-      <p>With all my love,</p>
-      <p><em>— Yours always</em></p>
-    </div>
-  </div>
+
+  <!-- NOTE: FOOTER - Anniversary date as footnote on right -->
   <div class="footer">
     Sept 13, 2025 💜
   </div>
+
   <script>
     function showContent(page) {
       const main = document.getElementById('main');
       let content = '';
+
+      // NOTE: HOME - Restores the home content
       if (page === 'home') {
         content = document.getElementById('homeContent').outerHTML;
+
+      // NOTE: TRACK 1 - Change Spotify link + note here
       } else if (page === 'track1') {
         content = '<h2>Track 1</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>This song reminds me of the first time we laughed until sunrise.</p>';
+
+      // NOTE: TRACK 2 - Change Spotify link + note here
       } else if (page === 'track2') {
         content = '<h2>Track 2</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>A melody that carries the warmth of your smile.</p>';
+
+      // NOTE: TRACK 3 - Change Spotify link + note here
       } else if (page === 'track3') {
         content = '<h2>Track 3</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>This one whispers the memory of our quiet walks together.</p>';
+
+      // NOTE: TRACK 4 - Change Spotify link + note here
       } else if (page === 'track4') {
         content = '<h2>Track 4</h2><p><a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a></p><p>The song that will always remind me of us under the stars.</p>';
       }
+
       main.innerHTML = content;
     }
   </script>
